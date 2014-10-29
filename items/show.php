@@ -5,11 +5,9 @@ queue_css_file('lightbox');
 
 <?php echo head(array('title' => metadata($item, array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
-<ul class="item-pagination navigation top">
-    <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
-    <li id="browse-items"><?php echo link_to_items_browse('Browse All Items'); ?></li>
-    <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
-</ul>
+<div class="return-nav">
+    <?php echo return_to_exhibit(); ?>
+</div>
 
 <h1 class="item-title"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h1>
 
