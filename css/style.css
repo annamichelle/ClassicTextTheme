@@ -1027,6 +1027,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     float: left;
     width: 100%;
   }
+  .return-nav a{
+	text-decoration: none;
+  }
   .item-title{
     border-color: #dddddd;
     border-bottom-width: 0.07em;
