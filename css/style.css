@@ -1013,7 +1013,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     margin-right: auto;
     text-align: center;
   }
-  .item-pagination.top{
+  .return-nav{
     clear: both;
     overflow: hidden;
     border-color: #dddddd;
