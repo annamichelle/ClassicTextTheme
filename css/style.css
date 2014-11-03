@@ -509,6 +509,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-color: #fff;
   }
 
+  .image-jpeg img{
+    margin: 0 1em 1.5em 0;
+  }
+
   .collection .image,
   .exhibit .image {
     -moz-box-shadow: -3px -3px 0 rgba(0, 0, 0, 0.2), -6px -6px 0 rgba(0, 0, 0, 0.1);
