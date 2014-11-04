@@ -1,5 +1,72 @@
 <?php 
 
+function cls_exhibit_navigation ($exhibitPage = null, $currentPageId) 
+{
+    if (!$exhibitPage) {
+        $exhibitPage = get_current_record('exhibit_page');
+    }
+
+    $exhibit = $exhibitPage->getExhibit();
+    $pages = $exhibit->getTopPages();
+    $html = '';
+
+    $parents = array();
+    $pageLoop = $exhibitPage;
+    while ($pageLoop->parent_id) {
+        $parents[] = $pageLoop->parent_id;
+        $pageLoop = $pageLoop->getParent();
+    }
+
+    foreach ($parents as $parent) {
+        echo 'parent page: ' . $parent . '<br />';
+    }
+
+    echo 'This is page: ' . $exhibitPage->id;
+    
+    $html .= '<ul class="exhibit-page-nav navigation" id="secondary-nav">' . "\n";
+
+    foreach ($pages as $page) {
+        $current = (exhibit_builder_is_current_page($page)) ? 'class="current"' : '';
+        $pageId = $page->id;
+        $html .= "<li $current>" . exhibit_builder_link_to_exhibit($exhibit, $page->title, array(), $page);
+        if ($current && $page->countChildPages() > 0) {
+            $childPages = $page->getChildPages();
+            $html .= '<ul class="child-pages">';
+            foreach ($childPages as $childPage) {
+                $html .= "<li>" . exhibit_builder_link_to_exhibit($exhibit, $childPage->title, array(), $childPage) . '</li>';
+            }
+            $html .= '</ul>';
+        }
+        elseif (in_array($pageId, $parents)) {
+            $children = $page->getChildPages();
+            $html .= '<ul class="child-pages">' . "\n";
+            foreach ($children as $child) {
+                $grandchildren = $child->getChildPages();
+                $childId = $child->id;
+                $current = (exhibit_builder_is_current_page($child)) ? 'class="current"' : '';
+                $html .= "<li $current>" . exhibit_builder_link_to_exhibit($exhibit, $child->title, array(), $child);
+                if ($current && $grandchildren > 0) {
+                    $html .= '<ul class="grandchild-pages">';
+                    foreach ($grandchildren as $grandchild) {
+                        $html .= "<li>" . exhibit_builder_link_to_exhibit($exhibit, $grandchild->title, array(), $grandchild) . '</li>';
+                    }
+                    $html .= '</ul>';
+                }
+                /*elseif (in_array($childId, $parents) {
+                    # code...
+                }*/
+                $html .= '</li>' . "\n";
+            }
+            $html .= '</ul>' . "\n";
+        }
+        $html .= '</li>' . "\n";
+    }
+
+    $html .= '</ul>' . "\n";
+    # $html = apply_filters('exhibit_builder_page_nav', $html);
+    return $html;
+}
+
 function emiglio_exhibit_builder_page_nav($exhibitPage = null)
 {
     if (!$exhibitPage) {
