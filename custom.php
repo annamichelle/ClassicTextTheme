@@ -1,6 +1,6 @@
 <?php 
 
-function cls_exhibit_navigation ($exhibitPage = null, $currentPageId) 
+function cls_exhibit_navigation ($exhibitPage = null) 
 {
     if (!$exhibitPage) {
         $exhibitPage = get_current_record('exhibit_page');
