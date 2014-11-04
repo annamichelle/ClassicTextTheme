@@ -14,7 +14,9 @@ echo head(array(
 <div id="secondary">
     <h2><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h2>
     <nav id="exhibit-pages">
-        <?php echo emiglio_exhibit_builder_page_nav(); ?>
+        <?php $currentPage = get_current_record('exhibit page'); ?>
+        <?php $currentPageId = metadata('exhibit_page', 'id'); ?>
+        <?php echo cls_exhibit_navigation($currentPage, $currentPageId); ?>
     </nav>
 </div>
 
