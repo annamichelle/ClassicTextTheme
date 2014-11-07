@@ -1166,12 +1166,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     margin-right: 0.75em;
   }
 
-  .summary #content #primary {
-    margin-right: 1.5em;
-  }
-
   .exhibits #secondary h2 {
     margin-bottom: 0.5em;
+  }
+
+  .summary .featured p {
+    margin: 0;
   }
 
   .browse .exhibit {
@@ -1200,7 +1200,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     padding: 0;
   }
   #exhibit-pages ul li:last-of-type {
-    margin-bottom: 0em;
+    margin-bottom: 0.3em;
   }
   #exhibit-pages ul a {
     width: 100%;
@@ -1221,10 +1221,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     color: #791616;
   }
 
-  .summary #exhibit-pages {
-    padding: 1.5em 0;
-  }
-
   #exhibit-pages #child-pages ul {
     background: #f0dada;
   }
@@ -1243,9 +1239,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-color: #c99b9b;
     color: #791616;
   }
-  /*#exhibit-pages #child-pages #grandchild-pages a {
-    margin-left: 10px;
-  }*/
 
   #exhibit-page-navigation {
     border-color: #dddddd;
