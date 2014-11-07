@@ -1187,9 +1187,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     padding: 0;
     overflow: hidden;
     margin-bottom: 1.5em;
+    background: #791616;
   }
   #exhibit-pages ul ul {
-    padding-left: 1.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     margin-bottom: 0em;
   }
   #exhibit-pages ul li {
@@ -1222,6 +1224,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   .summary #exhibit-pages {
     padding: 1.5em 0;
   }
+
+  #exhibit-pages #child-pages ul {
+    background: #f0dada;
+  }
+  #exhibit-pages #child-pages a {
+    background: #f0dada;
+    color: #791616;
+  }
+  #exhibit-pages #grandchild-pages a {
+    background: #fff5f5;
+  }
+  #exhibit-pages #child-pages a:hover {
+    background-color: #915d5d;
+    color: #fff;
+  }
+  #exhibit-pages #child-pages .current > a {
+    background-color: #c99b9b;
+    color: #791616;
+  }
+  /*#exhibit-pages #child-pages #grandchild-pages a {
+    margin-left: 10px;
+  }*/
 
   #exhibit-page-navigation {
     border-color: #dddddd;

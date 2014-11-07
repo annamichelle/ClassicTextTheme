@@ -25,14 +25,14 @@ function cls_exhibit_navigation ($exhibitPage = null)
         $children = $page->getChildPages();
         $html .= '<li' . $current . '>' . exhibit_builder_link_to_exhibit($exhibit, $page->title, array(), $page);
         if (($current && $children) || in_array($pageId, $parents)) {
-            $html .= '<ul class="child-pages">';
+            $html .= '<ul id="child-pages">';
             foreach ($children as $child) {
                 $current = (exhibit_builder_is_current_page($child)) ? ' class="current"' : '';
                 $childId = $child->id;
                 $grandchildren = $child->getChildPages();
                 $html .= '<li' . $current . '>' . exhibit_builder_link_to_exhibit($exhibit, $child->title, array(), $child);
                 if (($current && $grandchildren) || in_array($childId, $parents)) {
-                    $html .= '<ul class="grandchild-pages">';
+                    $html .= '<ul id="grandchild-pages">';
                     foreach ($grandchildren as $grandchild) {
                         $current = (exhibit_builder_is_current_page($grandchild)) ? 'class="current"' : '';
                         $html .= "<li $current>" . exhibit_builder_link_to_exhibit($exhibit, $grandchild->title, array(), $grandchild) . '</li>' . "\n";
