@@ -12,18 +12,12 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
 
 <div id="primary">
-<h1><?php echo metadata('exhibit', 'title'); ?>: <?php echo metadata('exhibit', 'subtitle'); ?></h1>
+<h1><?php echo metadata('exhibit', 'title'); ?></h1>
+<h2><?php echo metadata('exhibit', 'subtitle'); ?></h2>
 
 <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
 <div class="exhibit-description">
     <?php echo $exhibitDescription; ?>
-</div>
-<?php endif; ?>
-
-<?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
-<div class="exhibit-credits">
-    <h3><?php echo __('Credits'); ?></h3>
-    <p><?php echo $exhibitCredits; ?></p>
 </div>
 <?php endif; ?>
 
@@ -40,14 +34,13 @@
 <?php endif; ?>
 </div>
 
-<?php if (has_loop_records('exhibit_page')): ?>
-<nav id="exhibit-pages">
-    <ul>
-        <?php foreach (loop('exhibit_page') as $exhibitPage): ?>
-        <?php echo emiglio_exhibit_builder_page_summary($exhibitPage); ?>
-        <?php endforeach; ?>
-    </ul>
-</nav>
+<div id="secondary">
+<?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
+<div class="exhibit-credits featured">
+    <h2><?php echo __('Credits'); ?></h2>
+    <p><?php echo $exhibitCredits; ?></p>
+</div>
 <?php endif; ?>
+</div>
 
 <?php echo foot(); ?>
