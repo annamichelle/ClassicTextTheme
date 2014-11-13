@@ -12,7 +12,7 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
 
 <div id="primary">
-<h1><?php echo metadata('exhibit', 'title'); ?></h1>
+<h1><?php echo metadata('exhibit', 'title'); ?>: <?php echo metadata('exhibit', 'subtitle'); ?></h1>
 
 <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
 <div class="exhibit-description">
