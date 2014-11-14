@@ -50,6 +50,31 @@ function cls_exhibit_navigation ($exhibitPage = null)
     return $html;
 }
 
+/**
+ * Return a link to the first top-level page for this exhibit
+ *
+ * @param ExhibitPage $exhibitPage
+ * @param string $text Link text
+ * @return string
+*/
+function cls_exhibit_link_to_first_page($exhibitPage = null, $text = null)
+{
+    if(!$exhibitPage) {
+        $exhibitPage = get_current_record('exhibit_page');
+    }
+
+    $exhibit = $exhibitPage->getExhibit();
+    $pages = $exhibit->getTopPages();
+
+    $firstPage = $pages[0];
+
+    if (!$text) {
+        $text = 'Continue to Exhibit';
+    }
+
+    return exhibit_builder_link_to_exhibit($exhibit, $text, array(), $firstPage);
+}
+
 function emiglio_exhibit_builder_page_summary($exhibitPage = null)
 {
     if(!$exhibitPage) {

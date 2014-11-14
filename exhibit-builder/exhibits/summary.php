@@ -20,13 +20,6 @@
 </div>
 <?php endif; ?>
 
-<?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
-<div class="exhibit-credits">
-    <h3><?php echo __('Credits'); ?></h3>
-    <p><?php echo $exhibitCredits; ?></p>
-</div>
-<?php endif; ?>
-
 <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
 <?php if (has_loop_records('exhibit_page')): ?>
 <div class="exhibit-contents">
@@ -40,14 +33,16 @@
 <?php endif; ?>
 </div>
 
-<?php if (has_loop_records('exhibit_page')): ?>
-<nav id="exhibit-pages">
-    <ul>
-        <?php foreach (loop('exhibit_page') as $exhibitPage): ?>
-        <?php echo emiglio_exhibit_builder_page_summary($exhibitPage); ?>
-        <?php endforeach; ?>
-    </ul>
-</nav>
+<div id="secondary">
+<h3><?php echo cls_exhibit_link_to_first_page(); ?></h3>
+
+<?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
+<div class="exhibit-credits featured">
+    <h2><?php echo __('Credits'); ?></h2>
+    <p><?php echo $exhibitCredits; ?></p>
+</div>
 <?php endif; ?>
+    
+</div>
 
 <?php echo foot(); ?>
