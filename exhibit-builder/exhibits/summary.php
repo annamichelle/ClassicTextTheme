@@ -13,6 +13,9 @@
 
 <div id="primary">
 <h1><?php echo metadata('exhibit', 'title'); ?></h1>
+<?php if (metadata('exhibit', 'subtitle')): ?>
+    <h2><?php echo metadata('exhibit', 'subtitle'); ?></h2>
+<?php endif; ?>
 
 <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
 <div class="exhibit-description">
