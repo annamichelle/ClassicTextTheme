@@ -1053,6 +1053,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     margin-bottom: 1.5em;
   }
 
+  .exhibit-block .item-file img{
+    height: auto;
+    margin-bottom: 0;
+  }
+
   #sort-links {
     margin: 0.375em 0 1.5em;
     float: right;
