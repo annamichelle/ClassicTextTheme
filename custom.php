@@ -57,19 +57,18 @@ function cls_exhibit_navigation ($exhibitPage = null)
  * @param string $text Link text
  * @return string
 */
-function cls_exhibit_link_to_first_page($exhibitPage = null, $text = null)
+function cls_exhibit_link_to_first_page($exhibit = null, $text = null)
 {
-    if(!$exhibitPage) {
-        $exhibitPage = get_current_record('exhibit_page');
+    if(!$exhibit) {
+        $exhibit = get_current_record('exhibit');
     }
 
-    $exhibit = $exhibitPage->getExhibit();
     $pages = $exhibit->getTopPages();
 
     $firstPage = $pages[0];
 
     if (!$text) {
-        $text = 'Continue to Exhibit';
+        $text = 'Continue to Exhibit &#8594;';
     }
 
     return exhibit_builder_link_to_exhibit($exhibit, $text, array(), $firstPage);
