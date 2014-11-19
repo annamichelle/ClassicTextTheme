@@ -23,6 +23,10 @@
 </div>
 <?php endif; ?>
 
+<div class="continue-to-exhibit">
+    <h2><?php echo cls_exhibit_link_to_first_page(); ?></h2>
+</div>
+
 <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
 <?php if (has_loop_records('exhibit_page')): ?>
 <div class="exhibit-contents">
@@ -37,7 +41,6 @@
 </div>
 
 <div id="secondary">
-<h3><?php echo cls_exhibit_link_to_first_page(); ?></h3>
 
 <?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
 <div class="exhibit-credits featured">
