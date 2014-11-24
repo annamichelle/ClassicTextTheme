@@ -22,6 +22,7 @@
     <!-- Stylesheets -->
     <?php
     queue_css_url('//fonts.googleapis.com/css?family=Lato');
+    queue_css_url('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
     queue_css_file(array('iconfonts', 'style'));
     echo head_css();
 
@@ -32,6 +33,13 @@
     <?php 
     queue_js_file('globals');
     queue_js_file('jquery-accessibleMegaMenu');
+    queue_js_string('
+        jQuery(function() {
+            jQuery( "#accordion" ).accordion({
+                collapsible: true, active: false, heightStyle: "content"
+            });
+        });
+    ');
     echo head_js(); 
     ?>
 </head>

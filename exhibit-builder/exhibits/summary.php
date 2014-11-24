@@ -1,14 +1,3 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<script>
-    $(function() {
-        $( "#accordion" ).accordion({
-            collapsible: true, active: false, heightStyle: "content"
-        });
-    });
-</script>
-
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
 
 <div id="primary">
